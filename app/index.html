@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Hello from Electron</h1>
+    <p>
+      <button id="show-path">Current Directory</button>
+    </p>
+    <script>
+      const showPathButton = document.querySelector("#show-path");
+      console.log(showPathButton);
+      showPathButton.addEventListener("click", async () => {
+        const path = await window.electronAPI.getDirname();
+        console.log(path);
+        alert(path);
+      });
+    </script>
+  </body>
+</html>
